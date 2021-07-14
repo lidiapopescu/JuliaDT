@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-        id="com.juliacomputing.jldt.eclipse"
-        label="%name"
-        version="0.0.3.qualifier"
-        provider-name="%provider"
-        image="jcl-update-site.jpg">
+      id="com.juliacomputing.jldt.eclipse"
+      label="%name"
+      version="0.0.3.qualifier"
+      provider-name="%provider"
+      image="jcl-update-site.jpg">
 
-    <description>
-        Julia Language Eclipse Plugin (alpha release)
-    </description>
+   <description>
+      Julia Language Eclipse Plugin
+   </description>
 
-    <copyright>
-        Copyright (c) 2105, Julia Computing Inc. All rights reserved.
-    </copyright>
+   <copyright>
+      Copyright (c) 2021, Julia Computing Inc. &amp; WindRiver, All rights reserved.
+   </copyright>
 
-    <license url="https://opensource.org/licenses/MIT">
-        JuliaDT is licensed under the MIT License:
+   <license url="https://opensource.org/licenses/MIT">
+      JuliaDT is licensed under the MIT License:
 
         Copyright (c) 2015-2016: Julia Computing, Inc.
 
@@ -37,84 +37,84 @@
         LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
         OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
         WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-    </license>
+   </license>
 
-    <url>
-        <discovery label="Julia Computing Inc" url="http://juliacomputing.com"/>
-    </url>
+   <url>
+      <discovery label="Julia Computing Inc" url="http://juliacomputing.com"/>
+   </url>
 
-    <requires>
-        <import feature="org.eclipse.dltk.core" version="5.1.0" match="compatible"/>
-    </requires>
+   <requires>
+      <import feature="org.eclipse.dltk.core" version="5.1.0" match="greaterOrEqual"/>
+   </requires>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.core"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.ui"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.launch"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.launch"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.ui.launch"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.ui.launch"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.ui.editor"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.ui.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.parser"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.parser"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.ui.formatter"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.ui.formatter"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="com.juliacomputing.jldt.eclipse.ui.console"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="com.juliacomputing.jldt.eclipse.ui.console"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
+   <plugin
+         id="org.eclipse.equinox.util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="org.eclipse.equinox.util"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
+   <plugin
+         id="org.antlr.v4.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-    <plugin
-            id="org.antlr.antlr4-runtime-osgi"
-            download-size="0"
-            install-size="0"
-            version="0.0.0"
-            unpack="false"/>
 </feature>

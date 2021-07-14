@@ -13,9 +13,24 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
+    <modules>
+	   <module>../com.juliacomputing.jldt.build</module>
+	   <module>../../antlr4/runtime/Java</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.core</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.ui.console</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.launch</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.parser</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.ui.formatter</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.ui.editor</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.ui</module>
+	   <module>../plugins/com.juliacomputing.jldt.eclipse.ui.launch</module>
+	   <module>../../rt.equinox.bundles/bundles/org.eclipse.equinox.util/</module>
+	   <module>../features/com.juliacomputing.jldt.eclipse</module>
+	   <module>../com.juliacomputing.jldt.eclipse.repository</module>
+	</modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tycho-version>0.24.0</tycho-version>
+        <tycho-version>1.7.0</tycho-version>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-compiler-plugin.source>1.7</maven-compiler-plugin.source>
@@ -167,9 +182,9 @@
 
     <repositories>
         <repository>
-            <id>eclipse-mars</id>
+            <id>eclipse</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/mars</url>
+            <url>http://download.eclipse.org/releases/2020-03</url>
         </repository>
     </repositories>
 
