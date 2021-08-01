@@ -1,16 +1,17 @@
 module EclipseREPL
+using Base64
 function equivalent(command)
   if(strip(command)=="?")
     return helpcode("?")
   end
-  hcode = replace(command, r"^\s*\?", "")
+  hcode = replace(command, r"^\s*\?" => s"")
   if hcode != command
     return helpcode(hcode)
   end
   return command
 end
 function validate(statement)
-  expression = parse(statement,1; greedy=true, raise=false)
+  expression = Meta.parse(statement,1; greedy=true, raise=false)
   if !isa(expression[1],Expr)
     return (:complete,statement)
   end
@@ -35,13 +36,18 @@ function execute(command)
       return
     end
     status="complete"
-    result=include_string(statement)
-    if result==nothing
+    result=include_string(Main, statement)
+    if result===nothing
       return
     end
     response=stringmime("text/plain",result)
     resultType = string(typeof(result))
     if resultType=="Gadfly.Plot"
+      mimeType = "text/html"
+      println(stringmime(mimeType,result))
+      return
+    end
+    if contains(resultType,"Plots.Plot")
       mimeType = "text/html"
       println(stringmime(mimeType,result))
       return
@@ -59,7 +65,7 @@ function execute(command)
         println(response)
     end
   catch e
-    showerror(STDOUT, e); println()
+    showerror(stdout, e); println()
     status = "error"
     println()
   finally
@@ -72,25 +78,36 @@ function execute(command)
 end
 function flush_all()
     Libc.flush_cstdio()
-    flush(STDOUT)
-    flush(STDERR)
+    flush(stdout)
+    flush(stderr)
 end
-using Base
-function Base.workspace()
-    last = Core.Main
-    b = last.Base
-    e = EclipseREPL
-    ccall(:jl_new_main_module, Any, ())
-    m = Core.Main
-    ccall(:jl_add_standard_imports, Void, (Any,), m)
-    eval(m,
-         Expr(:toplevel,
-              :(const Base = $(Expr(:quote, b))),
-              :(const LastMain = $(Expr(:quote, last))),
-              :(const EclipseREPL = $(Expr(:quote, e)))))
-    empty!(Base.package_locks)
-    nothing
-end
+
+# Exception has occurred: UndefVarError
+# UndefVarError: workspace not defined
+# https://stackoverflow.com/questions/51872039/which-is-the-alternative-to-workspace-in-julia-1-0
+# function workspace()
+#   atexit() do
+#       run(`$(Base.julia_cmd())`)
+#   end
+#   exit()
+# end
+
+# function Base.workspace()
+# function workspace()
+#     last = Core.Main
+#     b = last.Base
+#     e = EclipseREPL
+#     ccall(:jl_new_main_module, Any, ())
+#     m = Core.Main
+#     ccall(:jl_add_standard_imports, Void, (Any,), m)
+#     eval(m,
+#          Expr(:toplevel,
+#               :(const Base = $(Expr(:quote, b))),
+#               :(const LastMain = $(Expr(:quote, last))),
+#               :(const EclipseREPL = $(Expr(:quote, e)))))
+#     empty!(Base.package_locks)
+#     nothing
+# end
 function helpcode(code::AbstractString)
     if VERSION < v"0.4.0-dev+2891" # old Base.@help macro
         return "Base.@help " * code
@@ -105,4 +122,3 @@ function helpcode(code::AbstractString)
     end
 end
 end
-
